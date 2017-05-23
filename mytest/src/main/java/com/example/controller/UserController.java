@@ -1,13 +1,16 @@
 package com.example.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.pojo.UserDemo;
 import com.example.service.UserService;
 import com.example.util.DataGridResult;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -29,18 +32,18 @@ public class UserController {
     }
 
     @RequestMapping("/getUserById")
-    public UserDemo getUserById(int id){
+    public UserDemo getUserById(int id) {
         return userService.getUserById(id);
     }
 
     @RequestMapping("/list")
-    public DataGridResult getAll(int pageNum,int pageSize, Model model){
-        PageHelper.startPage(pageNum,pageSize);
+    public DataGridResult getAll(int pageNum, int pageSize, Model model) {
+        PageHelper.startPage(pageNum, pageSize);
         List<UserDemo> list = userService.getAll();
         //创建一个返回值对象
         DataGridResult result = new DataGridResult();
         // 取商品列表
-        for(UserDemo item : list) {
+        for (UserDemo item : list) {
             System.out.println(item.getUsername());
         }
         result.setRows(list);
@@ -49,4 +52,18 @@ public class UserController {
         result.setTotal(pageInfo.getTotal());
         return result;
     }
+
+    @RequestMapping("/find/page")
+    @ResponseBody
+    public String findUser(Integer pageNum,Integer pageSize){
+        pageNum = pageNum==null?1:pageNum;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNum, pageSize);
+        List<UserDemo> list = new ArrayList<>();
+        list = userService.getAll();
+        PageInfo pageInfo = new PageInfo(list);
+        //Page page = (Page) list;
+        return "PageInfo: " + JSON.toJSONString(pageInfo);
+    }
 }
+

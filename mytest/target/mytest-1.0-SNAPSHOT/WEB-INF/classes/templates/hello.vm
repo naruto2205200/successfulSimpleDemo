@@ -1,0 +1,5 @@
+<div class="form-group">
+    ${map.id}
+    ${map.name}
+    ${map.age}
+</div>

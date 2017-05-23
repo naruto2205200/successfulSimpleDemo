@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.UserMapper">
     <select id="getUserById" resultType="com.example.pojo.UserDemo" parameterType="java.lang.Integer">
-        select * from tb_user WHERE id=#{id,jdbcType=INTEGER};
+        select * from userDemo WHERE id=#{id,jdbcType=INTEGER}
     </select>
 
     <select id="getAll" resultType="com.example.pojo.UserDemo">
-        select * from tb_user;
+        select * from userDemo
     </select>
 </mapper>
