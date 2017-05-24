@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td>id</td>
+            <td>姓名</td>
+            <td>邮箱</td>
+            <td>手机</td>
+        </tr>
+        #foreach($user in $!{pageInfo.list})
+            <tr>
+                <td>
+                    ${$user.id}
+                </td>
+                <td>
+                    ${$user.username}
+                </td>
+                <td>
+                    ${$user.email}
+                </td>
+                <td>
+                    ${$user.phone}
+                </td>
+            </tr>
+        #end
+    </table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" th:src="@{/static/js/jquery-3.2.1.js}" />
+    <script>
+        $(function(){
+            alert(1);
+        });
+    </script>
+</head>
+<body>
+<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+</body>
+</html>

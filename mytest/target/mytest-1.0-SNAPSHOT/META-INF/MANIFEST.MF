@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: mytest Maven Webapp
 Implementation-Version: 1.0-SNAPSHOT
-Built-By: lenovo
+Built-By: naruto
 Implementation-Vendor-Id: com.mytest
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_121
