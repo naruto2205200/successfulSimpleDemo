@@ -18,7 +18,6 @@ import java.util.Map;
  */
 @Controller
 public class LoginController {
-
     /**
      * 返回登录页面
      * @param returnUrl
@@ -30,7 +29,6 @@ public class LoginController {
         model.addObject("returnUrl",returnUrl);
         return model;
     }
-
     /**
      * 登录校验
      * @param username
@@ -46,7 +44,6 @@ public class LoginController {
         //doLogin(response);//保存cookie
         return ReturnResult.ok();
     }
-
     public void doLogin(HttpServletResponse response){
         Cookie cookie = new Cookie("login","login");
         cookie.setDomain(".xxx.com");//.跨域共享cookie
