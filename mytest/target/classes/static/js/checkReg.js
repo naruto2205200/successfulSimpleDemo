@@ -1,9 +1,4 @@
 $(function(){
-    var checkRegData = {
-        bool:true,
-
-    };
-
        function checkUsername(code){
            var bool = true;
            var re =/^[a-zA-z]\w{3,15}$/;
